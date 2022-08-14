@@ -1,10 +1,13 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('build') {
           agent none
           steps {
             echo "Build application-1 in windows agent"
+             echo "Build application-1 in Darwin agent"
+             echo "Build application"
+			 bat "mvnw  -Dmaven.test.skip=true clean compile package"
           }
         }
     stage('scan') {
